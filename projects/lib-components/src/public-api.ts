@@ -5,3 +5,4 @@
 export * from './lib/lib-components.service';
 export * from './lib/lib-components.component';
 export * from './lib/lib-components.module';
+export * from './lib/navbar/navbar.component';

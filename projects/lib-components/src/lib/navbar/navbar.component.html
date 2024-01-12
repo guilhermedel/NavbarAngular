@@ -1,1 +1,21 @@
-<p>navbar works!</p>
+<header
+  [ngClass]="{ 'top-header': topnav, 'side-header': sidenav }"
+  [ngStyle]="{ 'background-color': backgroundColor, 'color': textColor }"
+>
+  <span
+    class="name"
+    [ngStyle]="{ 'font-size': fontSizes[fontSize], 'color': textColor }"
+    [ngClass]="fontSize"
+    >Guilherme</span
+  >
+  <nav [ngClass]="{ 'top-header__nav': topnav, 'side-header__nav': sidenav }">
+    <div>
+      <fa-icon
+        [icon]="faBars"
+        [ngStyle]="{ 'font-size': fontSizes[fontSize], 'color': textColor }"
+        (click)="handleShowMenu()"
+      />
+    </div>
+    <ul [style.display]="showMenu ? 'block' : 'none'"></ul>
+  </nav>
+</header>

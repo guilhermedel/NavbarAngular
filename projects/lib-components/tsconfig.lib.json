@@ -3,7 +3,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/lib",
-    "declaration": true,
+    "declaration": false,
     "declarationMap": true,
     "inlineSources": true,
     "types": []
