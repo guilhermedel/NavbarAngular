@@ -5,28 +5,43 @@
       backgroundColor === 'dark' || backgroundColor === 'light'
         ? backgroundColors[backgroundColor]
         : backgroundColors['custom'],
-    'color': textColor
+    color: textColor
   }"
 >
   <span
     class="name"
-    [ngStyle]="{ 'font-size': fontSizes[fontSize], 'color': textColor }"
+    [ngStyle]="{ 'font-size': fontSizes[fontSize], color: textColor }"
     [ngClass]="fontSize"
     >Guilherme</span
   >
+
   <nav [ngClass]="{ 'top-header__nav': topnav, 'side-header__nav': sidenav }">
     <div>
       <fa-icon
         [icon]="faBars"
-        [ngStyle]="{ 'font-size': fontSizes[fontSize], 'color': textColor,'cursor': 'pointer' }"
+        [ngStyle]="{
+          'font-size': fontSizes[fontSize],
+          color: textColor,
+          cursor: 'pointer'
+        }"
         (click)="handleShowMenu()"
       />
     </div>
     <ul [style.display]="showMenu ? 'block' : 'none'">
+      <div class="search-box">
+        <input
+          [ngStyle]="{
+          'font-size': fontSizes[fontSize],
+        }"
+          (input)="onSearchChange($event)"
+          type="search"
+          placeholder="Search all in real time..."
+        />
+      </div>
       <li *ngFor="let menuItem of menuItems">
         <a
           href="#"
-          [ngStyle]="{ 'font-size': fontSizes[fontSize], 'color': textColor }"
+          [ngStyle]="{ 'font-size': fontSizes[fontSize], color: textColor }"
           >{{ menuItem }}</a
         >
       </li>
