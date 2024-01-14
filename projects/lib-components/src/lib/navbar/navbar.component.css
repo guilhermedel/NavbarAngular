@@ -7,4 +7,27 @@
 }
 
 .top-header__nav {
+  position: relative;
+  ul {
+    position: absolute;
+    right: 0;
+    padding: 1em 2em;
+    top: 60px;
+    background-color: #1b1b1b;
+    display: none;
+    list-style: none;
+    z-index: 100;
+  }
+  a {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  a:hover {
+    color: #9d5d1e !important;
+    transition: color 0.5s ease;
+  }
 }

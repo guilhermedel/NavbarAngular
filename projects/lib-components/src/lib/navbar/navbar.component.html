@@ -1,6 +1,12 @@
 <header
   [ngClass]="{ 'top-header': topnav, 'side-header': sidenav }"
-  [ngStyle]="{ 'background-color': backgroundColor, 'color': textColor }"
+  [ngStyle]="{
+    'background-color':
+      backgroundColor === 'dark' || backgroundColor === 'light'
+        ? backgroundColors[backgroundColor]
+        : backgroundColors['custom'],
+    'color': textColor
+  }"
 >
   <span
     class="name"
@@ -12,10 +18,18 @@
     <div>
       <fa-icon
         [icon]="faBars"
-        [ngStyle]="{ 'font-size': fontSizes[fontSize], 'color': textColor }"
+        [ngStyle]="{ 'font-size': fontSizes[fontSize], 'color': textColor,'cursor': 'pointer' }"
         (click)="handleShowMenu()"
       />
     </div>
-    <ul [style.display]="showMenu ? 'block' : 'none'"></ul>
+    <ul [style.display]="showMenu ? 'block' : 'none'">
+      <li *ngFor="let menuItem of menuItems">
+        <a
+          href="#"
+          [ngStyle]="{ 'font-size': fontSizes[fontSize], 'color': textColor }"
+          >{{ menuItem }}</a
+        >
+      </li>
+    </ul>
   </nav>
 </header>
