@@ -8,12 +8,7 @@
     color: textColor
   }"
 >
-  <span
-    class="name"
-    [ngStyle]="{ 'font-size': fontSizes[fontSize], color: textColor }"
-    [ngClass]="fontSize"
-    >Guilherme</span
-  >
+  <img class="image-box" [src]="imageString"/>
 
   <nav [ngClass]="{ 'top-header__nav': topnav, 'side-header__nav': sidenav }">
     <div>
@@ -21,14 +16,14 @@
         [icon]="faBars"
         [ngStyle]="{
           'font-size': fontSizes[fontSize],
-          color: textColor,
+
           cursor: 'pointer'
         }"
         (click)="handleShowMenu()"
       />
     </div>
     <ul [style.display]="showMenu ? 'block' : 'none'">
-      <div class="search-box">
+      <!-- <div class="search-box">
         <input
           [ngStyle]="{
           'font-size': fontSizes[fontSize],
@@ -37,10 +32,10 @@
           type="search"
           placeholder="Search all in real time..."
         />
-      </div>
+      </div> -->
       <li *ngFor="let menuItem of menuItems">
         <a
-          href="#"
+          [href]="menuItem"
           [ngStyle]="{ 'font-size': fontSizes[fontSize], color: textColor }"
           >{{ menuItem }}</a
         >

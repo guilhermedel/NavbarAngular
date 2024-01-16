@@ -9,6 +9,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { fontSizes } from '../../fonts/fontSizes';
 import { backgroundColors } from '../../background/backgroundColors';
+import { ImageBase64 } from '../../interfaces/image-base64';
 
 @Component({
   selector: 'lib-navbar',
@@ -21,14 +22,15 @@ export class NavbarComponent implements OnChanges {
   faMagnifyingGlass = faMagnifyingGlass;
   backgroundColors = backgroundColors;
   showMenu: boolean = false;
+  imageString: string;
   @Input() backgroundColor: string | 'dark' | 'light' = 'dark';
   @Input() textColor: string;
-  @Input() data:any[]
+  @Input() data: any[];
   @Input() imageColor: string;
   @Input() sidenav: boolean = false;
   @Input() topnav: boolean = true;
   @Input() menuItems: string[];
-  @Input() image: 'sm' | 'md' | 'lg' = 'md';
+  @Input() imageBase64: ImageBase64;
   @Input() fontSize: 'sm' | 'md' | 'lg' = 'md';
 
   constructor(private cdRef: ChangeDetectorRef) {}
@@ -36,9 +38,20 @@ export class NavbarComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (changes['backgroundColor']) {
       this.backgroundColors['custom'] = this.backgroundColor;
-      // this.cdRef.detectChanges();
+      if (this.backgroundColor === 'dark') {
+        this.textColor = 'white';
+      } else if (this.backgroundColor === 'light') {
+        this.textColor = 'black';
+      }
     }
-    console.log(this.backgroundColors);
+    if (changes['imageBase64']) {
+      console.log(this.imageBase64);
+      this.imageString =
+        'data:image/' +
+        this.imageBase64.type +
+        ';base64,' +
+        this.imageBase64.base64;
+    }
   }
 
   handleShowMenu() {
