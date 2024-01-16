@@ -14,7 +14,7 @@
     padding: 1em 2em;
     right: 0;
     opacity: 0.9;
-    top: 57px;
+    top: 68px;
     background-color: #1b1b1b;
     display: none;
     list-style: none;
@@ -32,6 +32,12 @@
     color: #9d5d1e !important;
     transition: color 0.8s ease;
   }
+}
+
+.icons-menu{
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .image-box{

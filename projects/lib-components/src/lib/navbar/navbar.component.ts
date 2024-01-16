@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { fontSizes } from '../../fonts/fontSizes';
 import { backgroundColors } from '../../background/backgroundColors';
 import { ImageBase64 } from '../../interfaces/image-base64';
@@ -18,10 +19,12 @@ import { ImageBase64 } from '../../interfaces/image-base64';
 })
 export class NavbarComponent implements OnChanges {
   faBars = faBars;
+  faUser = faUser;
   fontSizes = fontSizes;
   faMagnifyingGlass = faMagnifyingGlass;
   backgroundColors = backgroundColors;
   showMenu: boolean = false;
+  showProfile: boolean = false;
   imageString: string;
   @Input() backgroundColor: string | 'dark' | 'light' = 'dark';
   @Input() textColor: string;
@@ -52,6 +55,10 @@ export class NavbarComponent implements OnChanges {
         ';base64,' +
         this.imageBase64.base64;
     }
+  }
+
+  handleShowProfile() {
+    this.showProfile = !this.showProfile;
   }
 
   handleShowMenu() {

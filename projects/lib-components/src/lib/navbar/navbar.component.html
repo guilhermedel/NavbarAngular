@@ -8,10 +8,19 @@
     color: textColor
   }"
 >
-  <img class="image-box" [src]="imageString"/>
+  <img class="image-box" [src]="imageString" />
 
   <nav [ngClass]="{ 'top-header__nav': topnav, 'side-header__nav': sidenav }">
-    <div>
+    <div class="icons-menu">
+      <fa-icon
+        [icon]="faUser"
+        [ngStyle]="{
+          'font-size': fontSizes[fontSize],
+
+          cursor: 'pointer'
+        }"
+        (click)="handleShowProfile()"
+      />
       <fa-icon
         [icon]="faBars"
         [ngStyle]="{
