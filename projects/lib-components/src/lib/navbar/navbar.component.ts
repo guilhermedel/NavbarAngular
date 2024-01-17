@@ -6,6 +6,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { fontSizes } from '../../fonts/fontSizes';
@@ -20,6 +21,7 @@ import { ImageBase64 } from '../../interfaces/image-base64';
 export class NavbarComponent implements OnChanges {
   faBars = faBars;
   faUser = faUser;
+  faXmark = faXmark;
   fontSizes = fontSizes;
   faMagnifyingGlass = faMagnifyingGlass;
   backgroundColors = backgroundColors;

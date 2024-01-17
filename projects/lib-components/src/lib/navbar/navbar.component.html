@@ -1,17 +1,18 @@
-<header
-  [ngClass]="{ 'top-header': topnav, 'side-header': sidenav }"
-  [ngStyle]="{
-    'background-color':
-      backgroundColor === 'dark' || backgroundColor === 'light'
-        ? backgroundColors[backgroundColor]
-        : backgroundColors['custom'],
-    color: textColor
-  }"
->
+<section class="container">
+  <header
+    [ngClass]="{ 'top-header': topnav, 'side-header': sidenav }"
+    [ngStyle]="{
+      'background-color':
+        backgroundColor === 'dark' || backgroundColor === 'light'
+          ? backgroundColors[backgroundColor]
+          : backgroundColors['custom'],
+      color: textColor
+    }"
+  >
   <img class="image-box" [src]="imageString" />
 
   <nav [ngClass]="{ 'top-header__nav': topnav, 'side-header__nav': sidenav }">
-    <div class="icons-menu">
+    <div class="icons-menu__nav">
       <fa-icon
         [icon]="faUser"
         [ngStyle]="{
@@ -30,18 +31,8 @@
         }"
         (click)="handleShowMenu()"
       />
-    </div>
-    <ul [style.display]="showMenu ? 'block' : 'none'">
-      <!-- <div class="search-box">
-        <input
-          [ngStyle]="{
-          'font-size': fontSizes[fontSize],
-        }"
-          (input)="onSearchChange($event)"
-          type="search"
-          placeholder="Search all in real time..."
-        />
-      </div> -->
+
+      <!-- <ul [style.display]="showMenu ? 'block' : 'none'">
       <li *ngFor="let menuItem of menuItems">
         <a
           [href]="menuItem"
@@ -49,6 +40,29 @@
           >{{ menuItem }}</a
         >
       </li>
-    </ul>
+    </ul> -->
+    </div>
   </nav>
 </header>
+<div [class.show]="showMenu" class="menu-items__nav">
+  <fa-icon
+    class="close-icon-menu__nav"
+    [icon]="faXmark"
+    (click)="handleShowMenu()"
+  />
+  <div class="items-menu-items__nav">
+    <ul>
+      <li *ngFor="let menuItem of menuItems">
+        <a
+          [href]="menuItem"
+          [ngStyle]="{
+            'font-size': fontSizes[fontSize],
+            color: textColor
+          }"
+          >{{ menuItem }}</a
+        >
+      </li>
+    </ul>
+  </div>
+</div>
+</section>
