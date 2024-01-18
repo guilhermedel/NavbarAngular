@@ -6,33 +6,34 @@
         backgroundColor === 'dark' || backgroundColor === 'light'
           ? backgroundColors[backgroundColor]
           : backgroundColors['custom'],
-      color: textColor
+      color: textColor,
+      width: !showMenu ? '100vw' : '80vw'
     }"
   >
-  <img class="image-box" [src]="imageString" />
+    <img class="image-box" [src]="imageString" />
 
-  <nav [ngClass]="{ 'top-header__nav': topnav, 'side-header__nav': sidenav }">
-    <div class="icons-menu__nav">
-      <fa-icon
-        [icon]="faUser"
-        [ngStyle]="{
-          'font-size': fontSizes[fontSize],
+    <nav [ngClass]="{ 'top-header__nav': topnav, 'side-header__nav': sidenav }">
+      <div class="icons-menu__nav">
+        <fa-icon
+          [icon]="faUser"
+          [ngStyle]="{
+            'font-size': fontSizes[fontSize],
 
-          cursor: 'pointer'
-        }"
-        (click)="handleShowProfile()"
-      />
-      <fa-icon
-        [icon]="faBars"
-        [ngStyle]="{
-          'font-size': fontSizes[fontSize],
+            cursor: 'pointer'
+          }"
+          (click)="handleShowProfile()"
+        />
+        <fa-icon
+          [icon]="faBars"
+          [ngStyle]="{
+            'font-size': fontSizes[fontSize],
 
-          cursor: 'pointer'
-        }"
-        (click)="handleShowMenu()"
-      />
+            cursor: 'pointer'
+          }"
+          (click)="handleShowMenu()"
+        />
 
-      <!-- <ul [style.display]="showMenu ? 'block' : 'none'">
+        <!-- <ul [style.display]="showMenu ? 'block' : 'none'">
       <li *ngFor="let menuItem of menuItems">
         <a
           [href]="menuItem"
@@ -41,28 +42,23 @@
         >
       </li>
     </ul> -->
+      </div>
+    </nav>
+  </header>
+  <div [style.display]="!showMenu ? 'none':''" [class.show]="showMenu" class="menu-items__nav">
+    <div class="items-menu-items__nav">
+      <ul>
+        <li *ngFor="let menuItem of menuItems">
+          <a
+            [href]="menuItem"
+            [ngStyle]="{
+              'font-size': fontSizes[fontSize],
+              color: textColor
+            }"
+            >{{ menuItem }}</a
+          >
+        </li>
+      </ul>
     </div>
-  </nav>
-</header>
-<div [class.show]="showMenu" class="menu-items__nav">
-  <fa-icon
-    class="close-icon-menu__nav"
-    [icon]="faXmark"
-    (click)="handleShowMenu()"
-  />
-  <div class="items-menu-items__nav">
-    <ul>
-      <li *ngFor="let menuItem of menuItems">
-        <a
-          [href]="menuItem"
-          [ngStyle]="{
-            'font-size': fontSizes[fontSize],
-            color: textColor
-          }"
-          >{{ menuItem }}</a
-        >
-      </li>
-    </ul>
   </div>
-</div>
 </section>
