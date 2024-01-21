@@ -1,6 +1,16 @@
 .container {
+  position: relative;
   display: flex;
   width: 100vw;
+}
+
+.modal-menu__nav{
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(14, 13, 13, 0.712);
 }
 
 .top-header {
@@ -37,11 +47,14 @@
   background-color: #474747;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease-in-out;
-  transform: translateX(150%); 
+  height: 100vh;
   padding: 1em;
-  z-index: 2;
+  z-index: 3;
   .items-menu-items__nav {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   ul {
     list-style: none;
@@ -60,8 +73,14 @@
   }
 }
 
-.menu-items__nav.show {
-  transform: translateX(0);
+.profile-photo-box__nav{
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border: 2px solid #9d5d1e;
 }
 
 .image-box {

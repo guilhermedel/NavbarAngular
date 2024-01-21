@@ -1,4 +1,5 @@
 <section class="container">
+  <div [style.display]="!showMenu ? 'none' : ''" class="modal-menu__nav"></div>
   <header
     [ngClass]="{ 'top-header': topnav, 'side-header': sidenav }"
     [ngStyle]="{
@@ -32,21 +33,21 @@
           }"
           (click)="handleShowMenu()"
         />
-
-        <!-- <ul [style.display]="showMenu ? 'block' : 'none'">
-      <li *ngFor="let menuItem of menuItems">
-        <a
-          [href]="menuItem"
-          [ngStyle]="{ 'font-size': fontSizes[fontSize], color: textColor }"
-          >{{ menuItem }}</a
-        >
-      </li>
-    </ul> -->
       </div>
     </nav>
   </header>
-  <div [style.display]="!showMenu ? 'none':''" [class.show]="showMenu" class="menu-items__nav">
+  <div [style.display]="!showMenu ? 'none' : ''" class="menu-items__nav">
     <div class="items-menu-items__nav">
+      <div class="profile-photo-box__nav">
+        <fa-icon
+          [icon]="faUser"
+          [ngStyle]="{
+            'font-size': fontSizes[fontSize],
+            color: textColor,
+            cursor: 'pointer'
+          }"
+        />
+      </div>
       <ul>
         <li *ngFor="let menuItem of menuItems">
           <a
